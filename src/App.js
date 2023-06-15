@@ -12,15 +12,26 @@ const defaultTodos = [
   {text: 'Estudiar una hora', completed: false },
   {text: 'Trabajar durante el turno', completed: false },
   {text: 'Hacer visita', completed: false },
+  {text: 'estados', completed: true },
 
 ]
 
 
 function App() {
+  const [todos, setTodos] = React.useState(defaultTodos);
+  const [searchValue, setSearchValue] = React.useState(''); //creamos el estado para actualizar lo que se escriba en el input
+
+  const completedTodos = todos.filter(todo => !!todo.completed).length; //el simbolo !! o doble negacion converita en boleano cualquier cosa que devuelva
+  const totalTodos = todos.length;
+
+    console.log('los usuarios buscan ' + searchValue );
   return ( // el simbolo <> </> remplaza <React.Fragment>
     <> 
-      <TodoCounter completed={16} total={25} />
-      <TodoSearch/>  
+      <TodoCounter completed={completedTodos} total={totalTodos} />
+      <TodoSearch
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />  
 
       <TodoList> 
         {defaultTodos.map(todo => ( //el metodo .map me crea un array apartir de otro array
