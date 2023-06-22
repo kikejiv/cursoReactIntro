@@ -24,17 +24,24 @@ function App() {
   const completedTodos = todos.filter(todo => !!todo.completed).length; //el simbolo !! o doble negacion converita en boleano cualquier cosa que devuelva
   const totalTodos = todos.length;
 
+  const searchedTodos = todos.filter( //se filtra para que devuelva todas las coincidencias
+    (todo) => {
+      const todoText = todo.text.toLowerCase();
+      const searchText = searchValue.toLowerCase();
+      return todoText.includes(searchText)// este metodo devuelve el texto si incluye en la busqueda del searchValue
+    }
+  );
+
     console.log('los usuarios buscan ' + searchValue );
   return ( // el simbolo <> </> remplaza <React.Fragment>
     <> 
       <TodoCounter completed={completedTodos} total={totalTodos} />
-      <TodoSearch
-        searchValue={searchValue}
+      <TodoSearch searchValue={searchValue}
         setSearchValue={setSearchValue}
       />  
 
       <TodoList> 
-        {defaultTodos.map(todo => ( //el metodo .map me crea un array apartir de otro array
+        {searchedTodos.map(todo => ( //el metodo .map me crea un array apartir de otro array
           <TodoItem 
             key={todo.text}  
             text={todo.text}
