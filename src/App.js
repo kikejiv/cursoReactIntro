@@ -32,7 +32,24 @@ function App() {
     }
   );
 
-    console.log('los usuarios buscan ' + searchValue );
+  const completeTodo = (text) => {
+    const newTodos = [...todos]; //[...]sirve para hacer una copia del array
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text === text
+    );
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
+
+  const deleteTodo = (text) => {
+    const newTodos = [...todos]; //[...]sirve para hacer una copia del array
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text === text
+    );
+    newTodos.splice(todoIndex, 1) //el metodo splice pide una posicion en el indice
+    setTodos(newTodos);
+  };
+
   return ( // el simbolo <> </> remplaza <React.Fragment>
     <> 
       <TodoCounter completed={completedTodos} total={totalTodos} />
@@ -46,6 +63,9 @@ function App() {
             key={todo.text}  
             text={todo.text}
             completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)} //se encapsula una funcion en otra funcion
+            onDelete={() => deleteTodo(todo.text)}
+
           /> //retorna el todoitem
         ))}
         
