@@ -13,26 +13,36 @@ import './App.css';
   {text: 'Trabajar durante el turno', completed: false },
   {text: 'Hacer visita', completed: false },
   {text: 'estados', completed: false },
-] 
-
+];
 localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos)); */
 
-
-function App() {
-  const localStorageTodos = localStorage.getItem('TODOS_V1'); //declaramos la variable localStorageTodos para trabajar con el localStorage  -- Todos_v1 es el nombre de la app
+function useLocalStorage(itemName, initialValue) { //useLocalStorage es el custom hook que se encargara de manejar todo lo relacionado al localStorage, ademas puede manejar parametros
   
-  let parsedTodos;
+  const localStorageItem = localStorage.getItem(itemName); //declaramos la variable localStorageTodos para trabajar con el localStorage  -- Todos_v1 es el nombre de la app
+  
+  let parsedItem;
   //let parsedTodos = JSON.parse(localStorageTodos) //parseTodo llammos el json.parse nos convierte de string a array
 
-  if (!localStorageTodos) { //condicional para validar si es la primera vez que ingresa a la app el localStorage se inicie con un array vacio
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    parsedTodos = [];
+  if (!localStorageItem) { //condicional para validar si es la primera vez que ingresa a la app el localStorage se inicie con un array vacio
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = [];
   } else {
-    parsedTodos = JSON.parse(localStorageTodos); // si el caso contrario me traiga lo que tenia en el localStorage
+    parsedItem = JSON.parse(localStorageItem); // si el caso contrario me traiga lo que tenia en el localStorage
   }
 
+  const [item, setItem] = React.useState(parsedItem);
   
-  const [todos, setTodos] = React.useState(parsedTodos); //guardamos la variable parseTodos en el estado inicial de la app
+  //esta funcion actualiza al estado y al localStorage al mismo tiempo
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem)
+  };
+  return [item, saveItem];
+    
+}
+
+function App() {  
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []); //guardamos la variable en el estado inicial de la app con custom hook pasandoles las propiedades quellevara inicialmente
   const [searchValue, setSearchValue] = React.useState(''); //creamos el estado para actualizar lo que se escriba en el input
 
   const completedTodos = todos.filter(todo => !!todo.completed).length; //el simbolo !! o doble negacion converita en boleano cualquier cosa que devuelva
@@ -45,13 +55,6 @@ function App() {
       return todoText.includes(searchText)// este metodo devuelve el texto si incluye en la busqueda del searchValue
     }
   );
-
-  //esta funcion actualiza al estado y al localStorage al mismo tiempo
-  const saveTodos = (newTodos) => {
-    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
-
-    setTodos(newTodos)
-  };
 
 //-- marcar todo como completados
   const completeTodo = (text) => {
