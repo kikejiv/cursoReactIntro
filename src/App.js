@@ -6,19 +6,33 @@ import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
 import './App.css';
 
-const defaultTodos = [
+/* const defaultTodos = [
   {text: 'Despertarme temprano', completed: false },
   {text: 'Ir al gym', completed: false },
   {text: 'Estudiar una hora', completed: false },
   {text: 'Trabajar durante el turno', completed: false },
   {text: 'Hacer visita', completed: false },
   {text: 'estados', completed: false },
+] 
 
-]
+localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos)); */
 
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos);
+  const localStorageTodos = localStorage.getItem('TODOS_V1'); //declaramos la variable localStorageTodos para trabajar con el localStorage  -- Todos_v1 es el nombre de la app
+  
+  let parsedTodos;
+  //let parsedTodos = JSON.parse(localStorageTodos) //parseTodo llammos el json.parse nos convierte de string a array
+
+  if (!localStorageTodos) { //condicional para validar si es la primera vez que ingresa a la app el localStorage se inicie con un array vacio
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    parsedTodos = [];
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos); // si el caso contrario me traiga lo que tenia en el localStorage
+  }
+
+  
+  const [todos, setTodos] = React.useState(parsedTodos); //guardamos la variable parseTodos en el estado inicial de la app
   const [searchValue, setSearchValue] = React.useState(''); //creamos el estado para actualizar lo que se escriba en el input
 
   const completedTodos = todos.filter(todo => !!todo.completed).length; //el simbolo !! o doble negacion converita en boleano cualquier cosa que devuelva
@@ -31,6 +45,14 @@ function App() {
       return todoText.includes(searchText)// este metodo devuelve el texto si incluye en la busqueda del searchValue
     }
   );
+
+  //esta funcion actualiza al estado y al localStorage al mismo tiempo
+  const saveTodos = (newTodos) => {
+    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
+
+    setTodos(newTodos)
+  };
+
 //-- marcar todo como completados
   const completeTodo = (text) => {
     const newTodos = [...todos]; //[...]sirve para hacer una copia del array
@@ -38,7 +60,7 @@ function App() {
       (todo) => todo.text === text
     );
     newTodos[todoIndex].completed = true;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   //-- eliminar todo
@@ -48,7 +70,7 @@ function App() {
       (todo) => todo.text === text
     );
     newTodos.splice(todoIndex, 1) //el metodo splice pide una posicion en el indice y el 1 es las cantidades que eliminara
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   return ( // el simbolo <> </> remplaza <React.Fragment>
