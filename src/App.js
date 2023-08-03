@@ -7,12 +7,12 @@ import { CreateTodoButton } from './CreateTodoButton';
 import './App.css';
 
 const defaultTodos = [
-  {text: 'Despertarme temprano', completed: true },
+  {text: 'Despertarme temprano', completed: false },
   {text: 'Ir al gym', completed: false },
   {text: 'Estudiar una hora', completed: false },
   {text: 'Trabajar durante el turno', completed: false },
   {text: 'Hacer visita', completed: false },
-  {text: 'estados', completed: true },
+  {text: 'estados', completed: false },
 
 ]
 
@@ -31,7 +31,7 @@ function App() {
       return todoText.includes(searchText)// este metodo devuelve el texto si incluye en la busqueda del searchValue
     }
   );
-
+//-- marcar todo como completados
   const completeTodo = (text) => {
     const newTodos = [...todos]; //[...]sirve para hacer una copia del array
     const todoIndex = newTodos.findIndex(
@@ -41,12 +41,13 @@ function App() {
     setTodos(newTodos);
   };
 
+  //-- eliminar todo
   const deleteTodo = (text) => {
     const newTodos = [...todos]; //[...]sirve para hacer una copia del array
     const todoIndex = newTodos.findIndex(
       (todo) => todo.text === text
     );
-    newTodos.splice(todoIndex, 1) //el metodo splice pide una posicion en el indice
+    newTodos.splice(todoIndex, 1) //el metodo splice pide una posicion en el indice y el 1 es las cantidades que eliminara
     setTodos(newTodos);
   };
 
@@ -65,10 +66,8 @@ function App() {
             completed={todo.completed}
             onComplete={() => completeTodo(todo.text)} //se encapsula una funcion en otra funcion
             onDelete={() => deleteTodo(todo.text)}
-
           /> //retorna el todoitem
         ))}
-        
       </TodoList>
 
       <CreateTodoButton />
