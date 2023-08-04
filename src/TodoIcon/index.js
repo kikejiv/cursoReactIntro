@@ -1,5 +1,5 @@
-import { ReactComponent as CkeckSVG } from './check.svg'; //sintaxis para importar los iconos 
-import { ReactComponent as DeleteSVG } from './delete.svg'; 
+import { ReactComponent as CkeckSVG } from '../TodoIcon/check.svg'; //sintaxis para importar los iconos 
+import { ReactComponent as DeleteSVG } from '../TodoIcon/delete.svg'; 
 import './TodoIcon.css';
 
 const iconTypes = {
