@@ -1,10 +1,6 @@
 import React from 'react';
-import { TodoCounter } from '../TodoCounter/index';
-import { TodoSearch } from '../TodoSearch/index'; 
-import { TodoList } from '../TodoList/index'; 
-import { TodoItem } from '../TodoItem/index';
-import { CreateTodoButton } from '../CreateTodoButton';
-import './App.css';
+import { AppUI } from './AppUI';
+import { useLocalStorage } from './useLocalStorage';
 
 /* const defaultTodos = [
   {text: 'Despertarme temprano', completed: false },
@@ -15,31 +11,6 @@ import './App.css';
   {text: 'estados', completed: false },
 ];
 localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos)); */
-
-function useLocalStorage(itemName, initialValue) { //useLocalStorage es el custom hook que se encargara de manejar todo lo relacionado al localStorage, ademas puede manejar parametros
-  
-  const localStorageItem = localStorage.getItem(itemName); //declaramos la variable localStorageTodos para trabajar con el localStorage  -- Todos_v1 es el nombre de la app
-  
-  let parsedItem;
-  //let parsedTodos = JSON.parse(localStorageTodos) //parseTodo llammos el json.parse nos convierte de string a array
-
-  if (!localStorageItem) { //condicional para validar si es la primera vez que ingresa a la app el localStorage se inicie con un array vacio
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = [];
-  } else {
-    parsedItem = JSON.parse(localStorageItem); // si el caso contrario me traiga lo que tenia en el localStorage
-  }
-
-  const [item, setItem] = React.useState(parsedItem);
-  
-  //esta funcion actualiza al estado y al localStorage al mismo tiempo
-  const saveItem = (newItem) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem));
-    setItem(newItem)
-  };
-  return [item, saveItem];
-    
-}
 
 function App() {  
   const [todos, saveTodos] = useLocalStorage('TODOS_V1', []); //guardamos la variable en el estado inicial de la app con custom hook pasandoles las propiedades quellevara inicialmente
@@ -75,30 +46,17 @@ function App() {
     newTodos.splice(todoIndex, 1) //el metodo splice pide una posicion en el indice y el 1 es las cantidades que eliminara
     saveTodos(newTodos);
   };
-
-  return ( // el simbolo <> </> remplaza <React.Fragment>
-    <> 
-      <TodoCounter completed={completedTodos} total={totalTodos} />
-      <TodoSearch searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      />  
-
-      <TodoList> 
-        {searchedTodos.map(todo => ( //el metodo .map me crea un array apartir de otro array
-          <TodoItem 
-            key={todo.text}  
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)} //se encapsula una funcion en otra funcion
-            onDelete={() => deleteTodo(todo.text)}
-          /> //retorna el todoitem
-        ))}
-      </TodoList>
-
-      <CreateTodoButton />
-      
-    </>
-  );
+  return (
+    <AppUI 
+    completedTodos={completedTodos}
+    totalTodos={totalTodos}
+    searchValue = {searchValue}
+    setSearchValue={setSearchValue}
+    searchedTodos={searchedTodos}
+    completeTodo={completeTodo}
+    deleteTodo={deleteTodo}    
+    />  
+  )
 }
 
 export default App;
