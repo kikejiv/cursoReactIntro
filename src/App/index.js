@@ -2,7 +2,9 @@ import React from 'react';
 import { AppUI } from './AppUI';
 import { useLocalStorage } from './useLocalStorage';
 
-/* const defaultTodos = [
+/*
+localStorage.removeItem('TODOS_V1');
+const defaultTodos = [
   {text: 'Despertarme temprano', completed: false },
   {text: 'Ir al gym', completed: false },
   {text: 'Estudiar una hora', completed: false },
@@ -13,7 +15,12 @@ import { useLocalStorage } from './useLocalStorage';
 localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos)); */
 
 function App() {  
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []); //guardamos la variable en el estado inicial de la app con custom hook pasandoles las propiedades quellevara inicialmente
+  const {
+    item: todos, //renombremos los objetos todo y saveTodos
+    saveItem: saveTodos,
+    loading,
+    error,
+   } = useLocalStorage('TODOS_V1', []); //guardamos la variable en el estado inicial de la app con custom hook pasandoles las propiedades quellevara inicialmente
   const [searchValue, setSearchValue] = React.useState(''); //creamos el estado para actualizar lo que se escriba en el input
 
   const completedTodos = todos.filter(todo => !!todo.completed).length; //el simbolo !! o doble negacion converita en boleano cualquier cosa que devuelva
@@ -46,8 +53,10 @@ function App() {
     newTodos.splice(todoIndex, 1) //el metodo splice pide una posicion en el indice y el 1 es las cantidades que eliminara
     saveTodos(newTodos);
   };
-  return (
+  return ( // retorna el componente AppUI y envian las props y con sus valores ej: completedTodos={completedTodos}
     <AppUI 
+    loading={loading}
+    error={error}
     completedTodos={completedTodos}
     totalTodos={totalTodos}
     searchValue = {searchValue}
