@@ -25,7 +25,7 @@ function useLocalStorage(itemName, initialValue) { //useLocalStorage es el custo
         setLoading(false);
         setError(true);   
       }
-    }, 1000); // se debe especificar el tiempo en milisegundos para que se ejecute la funcion dentro del  setTimeout
+    }, 5000); // se debe especificar el tiempo en milisegundos para que se ejecute la funcion dentro del  setTimeout
    }, [itemName, initialValue ]);
    
     //esta funcion actualiza al estado y al localStorage al mismo tiempo
