@@ -17,7 +17,7 @@ localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos)); */
 function App() {  
   return ( // retorna el componente AppUI y envian las props y con sus valores ej: completedTodos={completedTodos}
     <TodoProvider>
-          <AppUI />  
+      <AppUI />  
     </TodoProvider>
   );
 }

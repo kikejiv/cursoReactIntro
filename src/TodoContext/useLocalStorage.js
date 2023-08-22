@@ -7,7 +7,7 @@ function useLocalStorage(itemName, initialValue) { //useLocalStorage es el custo
    
    React.useEffect(() => {
     setTimeout(() => {
-      try {
+      try { 
         const localStorageItem = localStorage.getItem(itemName); //declaramos la variable localStorageTodos para trabajar con el localStorage  -- Todos_v1 es el nombre de la app
       
       let parsedItem; //declaramos la variable parseItem
@@ -21,11 +21,11 @@ function useLocalStorage(itemName, initialValue) { //useLocalStorage es el custo
       }
   
         setLoading(false);
-      } catch (error) {
+      } catch (error) { 
         setLoading(false);
         setError(true);   
       }
-    }, 5000); // se debe especificar el tiempo en milisegundos para que se ejecute la funcion dentro del  setTimeout
+    }, 2000); // se debe especificar el tiempo en milisegundos para que se ejecute la funcion dentro del  setTimeout
    }, [itemName, initialValue ]);
    
     //esta funcion actualiza al estado y al localStorage al mismo tiempo

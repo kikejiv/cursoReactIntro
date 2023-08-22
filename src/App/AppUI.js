@@ -8,30 +8,31 @@ import { TodosLoading } from '../TodosLoading';
 import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
 import { CreateTodoButton } from '../CreateTodoButton';
+import { Modal } from '../Modal';
 import { TodoContext } from '../TodoContext';
-import './App.css';
+
 
 function AppUI() {
+  const {
+    loading,
+    error,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+  } = React.useContext(TodoContext);
   return (
     // el simbolo <> </> remplaza <React.Fragment>
     <>
       <TodoCounter />
       <TodoSearch /> 
-      
-      <TodoContext.Consumer>
-        {({
-          loading,
-          error,
-          searchedTodos,
-          completeTodo,
-          deleteTodo,
-        }) => (
-           <TodoList> 
-           {loading && <TodosLoading /> } 
-           {error && <TodosError /> }
-           {(!loading && searchedTodos.length === 0) && <EmptyTodos />} 
+      <TodoList> 
+        {loading && <TodosLoading /> } 
+        {error && <TodosError /> }
+        {(!loading && searchedTodos.length === 0) && <EmptyTodos />} 
  
-           {searchedTodos.map(todo => (   //el metodo .map me crea un array apartir de otro array
+        {searchedTodos.map(todo => (   //el metodo .map me crea un array apartir de otro array
                <TodoItem
                  key={todo.text}
                  text={todo.text}
@@ -39,13 +40,16 @@ function AppUI() {
                  onComplete={() => completeTodo(todo.text)} //se encapsula una funcion en otra funcion
                  onDelete={() => deleteTodo(todo.text)}
                /> //retorna el todoitem
-             ))}
-         </TodoList>
-        )}
-       
-      </TodoContext.Consumer>
+          ))}
+      </TodoList>
       
       <CreateTodoButton />
+
+      {openModal && (
+        <Modal>
+          la funcion del modal
+        </Modal>
+      )}
     </>
   );
 }
