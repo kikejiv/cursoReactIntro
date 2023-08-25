@@ -1,0 +1,113 @@
+[33mcommit cc5428024cc30e3cd987bf34c7343f471feae5d0[m[33m ([m[1;36mHEAD -> [m[1;32mpaso-18[m[33m, [m[1;31morigin/paso-17[m[33m, [m[1;32mpaso-17[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Fri Aug 25 09:34:08 2023 -0500
+
+    paso-17 creando modal y  formulario de agregar TODO
+
+[33mcommit 9bd572363048c57dd922d8052d19da3e590676e0[m[33m ([m[1;31morigin/paso-16[m[33m, [m[1;32mpaso-16[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Tue Aug 22 18:42:29 2023 -0500
+
+    paso-16 creando portales
+
+[33mcommit 4a64f6de71b35df4f70b0c35a520b377b93cec42[m[33m ([m[1;31morigin/paso-15[m[33m, [m[1;32mpaso-15[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Thu Aug 17 21:11:49 2023 -0500
+
+    paso-15 aplicando React Context
+
+[33mcommit 518f5b45fd7de0aa133ab43d1bdd68c25c09cfe6[m[33m ([m[1;31morigin/paso-14[m[33m, [m[1;32mpaso-14[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Wed Aug 16 21:53:01 2023 -0500
+
+    paso-14 Creando estado de carga loading skeletor
+
+[33mcommit 1f75d03cc395c6413d320050da36cf83df5c4f5b[m[33m ([m[1;31morigin/paso-13[m[33m, [m[1;32mpaso-13[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Tue Aug 15 23:03:13 2023 -0500
+
+    paso-13 actualizando estados desde useEffect
+
+[33mcommit 4974d2028105e12edbe236df30ef2a6bc50afdc8[m[33m ([m[1;31morigin/paso-12[m[33m, [m[1;32mpaso-12[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Fri Aug 11 10:01:00 2023 -0500
+
+    organizacion y abstraccion de componentes
+
+[33mcommit 53132c0fb08c35e139dc4ade86564137c5e00bdf[m[33m ([m[1;31morigin/paso-11[m[33m, [m[1;32mpaso-11[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Fri Aug 4 14:33:33 2023 -0500
+
+    paso-11 organizacion de archivos y carpetas
+
+[33mcommit 5bb4ed9cb2a2047a0b317714e578aaadf784e82c[m[33m ([m[1;31morigin/paso-10[m[33m, [m[1;32mpaso-10[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Thu Aug 3 08:55:29 2023 -0500
+
+    optimizando el codigo con custom hook
+
+[33mcommit c171c0a31f4e6a7a48b7efcacad01ed1cc231299[m[33m ([m[1;31morigin/paso-9[m[33m, [m[1;32mpaso-9[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Wed Aug 2 23:28:14 2023 -0500
+
+    persistencia de datos con localStorage
+
+[33mcommit 09a8d41de93688ab13880a1aa129fceda00d2d8f[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Wed Aug 2 21:57:57 2023 -0500
+
+    iconos svg
+
+[33mcommit 7659a60460c23f9aa118624719541d59c1e96cf1[m[33m ([m[1;31morigin/paso-8[m[33m, [m[1;32mpaso-8[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Sat Jul 8 19:29:39 2023 -0500
+
+    paso-8 iconos
+
+[33mcommit dddb43df3e839b940ff345f08f811d1f5e16c6a4[m[33m ([m[1;31morigin/paso-7[m[33m, [m[1;32mpaso-7[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Tue Jun 27 00:21:19 2023 -0500
+
+    paso-7 completando y eliminando todo
+
+[33mcommit b9e421da6aa18bb5c99d490a4e143d819ca38bd9[m[33m ([m[1;31morigin/paso-6[m[33m, [m[1;32mpaso-6[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Wed Jun 21 19:55:19 2023 -0500
+
+    paso-6 buscando todos
+
+[33mcommit 8d4bdd855d5534bb5a1109ccd5b0539b561da040[m[33m ([m[1;31morigin/paso-5[m[33m, [m[1;32mpaso-5[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Thu Jun 15 07:54:29 2023 -0500
+
+    paso-5 contando todos y comunicando estados
+
+[33mcommit d609e6bbb2922cb36154158147e7f51fab1bac27[m[33m ([m[1;31morigin/paso-4[m[33m, [m[1;32mpaso-4[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Tue Jun 13 22:41:18 2023 -0500
+
+    paso-4 enventos en REact onClick - onChange
+
+[33mcommit 9b467485e82cc73d90f94b0bcd5368fa831eaa61[m[33m ([m[1;31morigin/paso-3[m[33m, [m[1;32mpaso-3[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Sun Jun 11 11:52:30 2023 -0500
+
+    paso-3 creando estilos en css
+
+[33mcommit ef3d48cc5908e71c117af45ce2b9c5cfc5727d37[m[33m ([m[1;31morigin/paso-2[m[33m, [m[1;32mpaso-2[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Sat Jun 10 15:45:25 2023 -0500
+
+    comunicacion de componentes props
+
+[33mcommit b4d888b173aef81d910f04a2d2c5831b7dbafa75[m[33m ([m[1;31morigin/paso-1[m[33m, [m[1;32mpaso-1[m[33m)[m
+Author: Jose Valencia <tecnicojiv@gmail.com>
+Date:   Fri Jun 9 20:59:21 2023 -0500
+
+    Creando componetes
+
+[33mcommit c739483cd98ed009ddabd58a9f9bcbe34fda8de8[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Juan David Castro <me@juandc.co>
+Date:   Wed Nov 9 10:41:44 2022 -0500
+
+    Estructura base lista para empezar el curso

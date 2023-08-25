@@ -12,7 +12,7 @@ function TodoProvider({ children }) {
        } = useLocalStorage('TODOS_V1', []); //guardamos la variable en el estado inicial de la app con custom hook pasandoles las propiedades quellevara inicialmente
       const [searchValue, setSearchValue] = React.useState(''); //creamos el estado para actualizar lo que se escriba en el input
   
-      const [openModal, setOpenModal] = React.useState(true); //creamos el estado para actualizar el modal
+      const [openModal, setOpenModal] = React.useState(false); //creamos el estado para actualizar el modal
 
       const completedTodos = todos.filter(todo => !!todo.completed).length; //el simbolo !! o doble negacion converita en boleano cualquier cosa que devuelva
       const totalTodos = todos.length;
@@ -24,6 +24,15 @@ function TodoProvider({ children }) {
           return todoText.includes(searchText)// este metodo devuelve el texto si incluye en la busqueda del searchValue
         }
       );
+
+      const addTodo = (text) => { //recibe el nuevo texto del newTodoValue de la tarea pendiente que se quiere agregar
+        const newTodos = [...todos]; //[...]sirve para hacer una copia del array
+        newTodos.push({
+          text,
+          completed: false,
+        });
+        saveTodos(newTodos);
+      }
     
     //-- marcar todo como completados
       const completeTodo = (text) => {
@@ -54,6 +63,7 @@ function TodoProvider({ children }) {
             searchValue,
             setSearchValue,
             searchedTodos,
+            addTodo,
             completeTodo,
             deleteTodo,
             openModal,
