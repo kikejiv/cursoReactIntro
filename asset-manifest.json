@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/github.io/cursoReactIntro/static/css/main.56a70079.css",
-    "main.js": "/github.io/cursoReactIntro/static/js/main.76287018.js",
-    "index.html": "/github.io/cursoReactIntro/index.html",
-    "static/media/check.svg": "/github.io/cursoReactIntro/static/media/check.d19fc38d0134b592e7b6c6359546f64e.svg",
-    "static/media/delete.svg": "/github.io/cursoReactIntro/static/media/delete.704a034963349bb5fc105e7c4414e856.svg",
-    "main.56a70079.css.map": "/github.io/cursoReactIntro/static/css/main.56a70079.css.map",
-    "main.76287018.js.map": "/github.io/cursoReactIntro/static/js/main.76287018.js.map"
+    "main.css": "./static/css/main.dd0d012c.css",
+    "main.js": "./static/js/main.5fd12169.js",
+    "index.html": "./index.html",
+    "static/media/check.svg": "./static/media/check.d19fc38d0134b592e7b6c6359546f64e.svg",
+    "static/media/delete.svg": "./static/media/delete.704a034963349bb5fc105e7c4414e856.svg",
+    "main.dd0d012c.css.map": "./static/css/main.dd0d012c.css.map",
+    "main.5fd12169.js.map": "./static/js/main.5fd12169.js.map"
   },
   "entrypoints": [
-    "static/css/main.56a70079.css",
-    "static/js/main.76287018.js"
+    "static/css/main.dd0d012c.css",
+    "static/js/main.5fd12169.js"
   ]
 }
