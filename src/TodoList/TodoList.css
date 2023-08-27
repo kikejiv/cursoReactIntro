@@ -1,5 +1,9 @@
 .TodoList {
-    margin: 0;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 14px;
     padding: 0 0 56px 0;
     list-style: none;
+    
 }

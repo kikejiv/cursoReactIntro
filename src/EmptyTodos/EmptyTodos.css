@@ -1,0 +1,9 @@
+.emptyButtonContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.btnEmpty{
+    justify-content: center;
+}

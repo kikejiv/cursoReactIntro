@@ -2,6 +2,14 @@ import React from 'react';
 import { TodoProvider } from '../TodoContext';
 import { AppUI } from './AppUI';
 
+function App() {  
+  return ( // retorna el componente AppUI y envian las props y con sus valores ej: completedTodos={completedTodos}
+    <TodoProvider>
+      <AppUI />  
+    </TodoProvider>
+  );
+}
+
 /*
 localStorage.removeItem('TODOS_V1');
 const defaultTodos = [
@@ -13,13 +21,5 @@ const defaultTodos = [
   {text: 'estados', completed: false },
 ];
 localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos)); */
-
-function App() {  
-  return ( // retorna el componente AppUI y envian las props y con sus valores ej: completedTodos={completedTodos}
-    <TodoProvider>
-      <AppUI />  
-    </TodoProvider>
-  );
-}
 
 export default App;
